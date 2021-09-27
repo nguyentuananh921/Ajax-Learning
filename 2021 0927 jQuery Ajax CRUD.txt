@@ -1,0 +1,2 @@
+https://github.com/CodAffection/jQuery-Ajax-with-ASP.NET-Core-MVC-using-Modal-PopUp
+https://www.youtube.com/watch?v=3r6RfShv8m8
