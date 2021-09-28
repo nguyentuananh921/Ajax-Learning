@@ -25,25 +25,6 @@ namespace WebMVC.Controllers
         {
             return View(await _context.Transactions.ToListAsync());
         }
-
-        //// GET: Transactions/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var transactionModel = await _context.Transactions
-        //        .FirstOrDefaultAsync(m => m.TransactionId == id);
-        //    if (transactionModel == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(transactionModel);
-        //}
-
         // GET: Transactions/AddOrEdit
         // GET: Transactions/AddOrEdit/5
         public async Task<IActionResult> AddOrEdit( int id=0)
@@ -67,39 +48,7 @@ namespace WebMVC.Controllers
 
             }
                 
-        }
-
-        // POST: Transactions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(transactionModel);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(transactionModel);
-        //}
-
-        //// GET: Transactions/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var transactionModel = await _context.Transactions.FindAsync(id);
-        //    if (transactionModel == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(transactionModel);
-        //}
+        }        
 
         // POST: Transactions/AddOrEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -151,6 +100,7 @@ namespace WebMVC.Controllers
             return Json(new { isValid = false, html = Helper.Helper.RenderRazorViewToString(this,"AddOrEdit",transactionModel) });
         }
 
+        #region Delete
         // GET: Transactions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -177,8 +127,10 @@ namespace WebMVC.Controllers
             var transactionModel = await _context.Transactions.FindAsync(id);
             _context.Transactions.Remove(transactionModel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            return Json(new {html = Helper.Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
         }
+        #endregion
 
         private bool TransactionModelExists(int id)
         {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebMVC.Models.TransactionModel>
+﻿@model IEnumerable<TransactionModel>
 <table class="table">
     <thead>
         <tr>
@@ -58,7 +58,10 @@
                         Edit
                     </a>
                     @*<a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |*@
-                    <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>*@
+                    <form class="d-inline" asp-action="Delete" asp-route-id="@item.TransactionId" onsubmit="return jQueryAjaxDelete(this);">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
                 </td>
             </tr>
         }

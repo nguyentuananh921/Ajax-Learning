@@ -1,7 +1,7 @@
 ﻿@model WebMVC.Models.TransactionModel
 
 @{
-    ViewData["Title"] = "Edit";
+    //ViewData["Title"] = "Edit";
     Layout = null;
 }
 <div class="row">
@@ -58,21 +58,21 @@
                         <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
                 </div>
-            </div>            
+            </div>
             <div class="form-group">
                 <input type="submit" value="Submit" class="btn btn-primary btn-block" />
                 @*<div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button" value="Submit">Submit</button>                    
-                </div>*@                
+                        <button class="btn btn-primary" type="button" value="Submit">Submit</button>
+                    </div>*@
             </div>
         </form>
     </div>
 </div>
 
 @*<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
+        <a asp-action="Index">Back to List</a>
+    </div>*@
 
-@section Scripts {
+@section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebMVC</title>    
+    <title>@ViewData["Title"] - WebMVC</title>
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Roboto.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
 </head>
@@ -38,7 +39,7 @@
         </main>
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="form-modal">
+    <div class="modal" tabindex="-1" role="dialog" id="layout-form-modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,7 +47,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                 </div>
                 @*<div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -55,6 +55,7 @@
             </div>
         </div>
     </div>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - WebMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
