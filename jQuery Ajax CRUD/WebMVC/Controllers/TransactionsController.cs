@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebMVC.Data;
 using WebMVC.Models;
+using WebMVC.Helper;
 
 namespace WebMVC.Controllers
 {
@@ -50,7 +51,8 @@ namespace WebMVC.Controllers
             if (id == 0)
             {
                 //Add new 
-                return View();
+                //return View();
+                return View(new TransactionModel());
                 
             }
             else
@@ -70,68 +72,83 @@ namespace WebMVC.Controllers
         // POST: Transactions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(transactionModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(transactionModel);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(transactionModel);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(transactionModel);
+        //}
 
-        // GET: Transactions/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //// GET: Transactions/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var transactionModel = await _context.Transactions.FindAsync(id);
-            if (transactionModel == null)
-            {
-                return NotFound();
-            }
-            return View(transactionModel);
-        }
+        //    var transactionModel = await _context.Transactions.FindAsync(id);
+        //    if (transactionModel == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(transactionModel);
+        //}
 
-        // POST: Transactions/Edit/5
+        // POST: Transactions/AddOrEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
+        public async Task<IActionResult> AddOrEdit(int id, [Bind("TransactionId,AccountNumber,BeneficiaryName,BankName,SWIFTCode,Amount,Date")] TransactionModel transactionModel)
         {
-            if (id != transactionModel.TransactionId)
-            {
-                return NotFound();
-            }
-
+            //if (id != transactionModel.TransactionId)
+            //{
+            //    return NotFound();
+            //}
+           
             if (ModelState.IsValid)
             {
-                try
+                if (id == 0)
                 {
-                    _context.Update(transactionModel);
+                    //Add New
+                    transactionModel.Date = DateTime.Now;
+                    _context.Add(transactionModel);
                     await _context.SaveChangesAsync();
+
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!TransactionModelExists(transactionModel.TransactionId))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(transactionModel);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TransactionModelExists(transactionModel.TransactionId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                //return RedirectToAction(nameof(Index));
+                //return Json(new {isValid=true,html=Helper.Helper.RenderRazorViewToString(this,"Index",_context.Transactions.ToList()) });
+                return Json(new { isValid = true, html = Helper.Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
             }
-            return View(transactionModel);
+            //return View(transactionModel);
+            return Json(new { isValid = false, html = Helper.Helper.RenderRazorViewToString(this,"AddOrEdit",transactionModel) });
         }
 
         // GET: Transactions/Delete/5

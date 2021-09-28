@@ -39,7 +39,7 @@ namespace WebMVC.Models
         [Required(ErrorMessage = "This Field is required.")]
         public int Amount { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")] //Format Display Format
         public DateTime Date { get; set; }
     }
 }
