@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj": {}
+    "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj": {}
   },
   "projects": {
-    "E:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj": {
+    "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj",
+        "projectUniqueName": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj",
         "projectName": "WebMVC",
-        "projectPath": "E:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj",
+        "projectPath": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\WebMVC.csproj",
         "packagesPath": "C:\\Users\\Nguyen Tuan Anh\\.nuget\\packages\\",
-        "outputPath": "E:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\obj\\",
+        "outputPath": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Employee CRUD\\WebMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\Nguyen Tuan Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -86,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
