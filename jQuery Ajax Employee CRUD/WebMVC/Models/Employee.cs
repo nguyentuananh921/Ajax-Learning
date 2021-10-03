@@ -13,6 +13,5 @@ namespace WebMVC.Models
         public string Office { get; set; }
         public int Salary { get; set; }
         public string ImagePath { get; set; }
-
     }
 }

@@ -1,19 +1,36 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebMVC.Data;
+using WebMVC.Models;
 
 namespace WebMVC.Controllers
 {
     public class EmployeeController : Controller
     {
+        private readonly ApplicationDbContext _appContext;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public EmployeeController(ApplicationDbContext appContext, IWebHostEnvironment hostingEnvironment)
+        {
+            _appContext = appContext;
+            _hostingEnvironment = hostingEnvironment;
+        }
         // GET: EmployeeController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             return View();
+
         }
+        public async Task<ActionResult> ViewAll()
+        {
+            return View(await _appContext.Employees.ToListAsync());
+            
+        }        
 
         // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
@@ -41,7 +58,29 @@ namespace WebMVC.Controllers
                 return View();
             }
         }
+        //GET
+        public async Task<IActionResult> AddOrEdit(int empid=0)
+        {
+            if (empid == 0)
+            {
+                //Add new 
+                //return View();
+                //return View(new Employee());
+                return PartialView("_AddOrEdit", new Employee());
 
+            }
+            else
+            {
+                //Update
+                var employeeModel = await _appContext.Employees.FindAsync(empid);
+                if (employeeModel == null)
+                {
+                    return NotFound();
+                }
+                //return View(employeeModel);
+                return PartialView("_AddOrEdit", employeeModel);
+            }            
+        }
         // GET: EmployeeController/Edit/5
         public ActionResult Edit(int id)
         {
