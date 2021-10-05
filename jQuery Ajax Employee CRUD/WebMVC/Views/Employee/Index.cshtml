@@ -13,15 +13,16 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="ViewAllTab" role="tabpanel" aria-labelledby="ViewAll-tab">
-            <a asp-action="Create">Create New</a>
+            @*<a asp-action="Create">Create New</a>*@
             View all Employee come here
-            <partial name="ViewAll" />
+            @*<partial name="ViewAll" />*@
             @*@await Html.PartialAsync("_ViewAllEmployee")*@
             @*<partial name="_ViewAllEmployee" model="Model"/>*@
-            
+            @await Component.InvokeAsync("ViewAllEmployee")            
         </div>
         <div class="tab-pane fade" id="AddOrEditTab" role="tabpanel" aria-labelledby="AddOrEdit-tab">
             Add or Update Employee come here
+            @await Component.InvokeAsync("AddOrUpdateEmployee")
             @*<partial name="_AddOrEditEmployee" />*@
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">

@@ -2,9 +2,6 @@
 @{
     Layout = null;
 }
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -18,13 +15,13 @@
                 @Html.DisplayNameFor(model => model.Office)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Salary)'Object reference not set to an instance of an object.'
+                @Html.DisplayNameFor(model => model.Salary)
 
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ImagePath)
             </th>
-            <th></th>
+            <th><a asp-action="Create">Create New</a></th>
         </tr>
     </thead>
     <tbody>
@@ -55,5 +52,3 @@
         }
     </tbody>
 </table>
-
-

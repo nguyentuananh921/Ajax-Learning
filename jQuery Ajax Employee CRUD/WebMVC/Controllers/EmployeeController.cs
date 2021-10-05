@@ -21,106 +21,106 @@ namespace WebMVC.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
         // GET: EmployeeController
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
             return View();
 
         }
-        public async Task<ActionResult> ViewAll()
-        {
-            return View(await _appContext.Employees.ToListAsync());
+        //public async Task<ActionResult> ViewAll()
+        //{
+        //    return View(await _appContext.Employees.ToListAsync());
             
-        }        
+        //}        
 
-        // GET: EmployeeController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //// GET: EmployeeController/Details/5
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
-        // GET: EmployeeController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: EmployeeController/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: EmployeeController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        //GET
-        public async Task<IActionResult> AddOrEdit(int empid=0)
-        {
-            if (empid == 0)
-            {
-                //Add new 
-                //return View();
-                //return View(new Employee());
-                return PartialView("_AddOrEdit", new Employee());
+        //// POST: EmployeeController/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+        ////GET
+        //public async Task<IActionResult> AddOrEdit(int empid=0)
+        //{
+        //    if (empid == 0)
+        //    {
+        //        //Add new 
+        //        //return View();
+        //        //return View(new Employee());
+        //        return PartialView("_AddOrEdit", new Employee());
 
-            }
-            else
-            {
-                //Update
-                var employeeModel = await _appContext.Employees.FindAsync(empid);
-                if (employeeModel == null)
-                {
-                    return NotFound();
-                }
-                //return View(employeeModel);
-                return PartialView("_AddOrEdit", employeeModel);
-            }            
-        }
-        // GET: EmployeeController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //    }
+        //    else
+        //    {
+        //        //Update
+        //        var employeeModel = await _appContext.Employees.FindAsync(empid);
+        //        if (employeeModel == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //        //return View(employeeModel);
+        //        return PartialView("_AddOrEdit", employeeModel);
+        //    }            
+        //}
+        //// GET: EmployeeController/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: EmployeeController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: EmployeeController/Edit/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
-        // GET: EmployeeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //// GET: EmployeeController/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: EmployeeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: EmployeeController/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
