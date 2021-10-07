@@ -21,7 +21,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImagePath)
             </th>
-            <th><a asp-action="Create">Create New</a></th>
+            <th>
+                <a class="btn btn-success text-white" id="addNewEmployeeButton" href="#">
+                    <i class="fas fa-random"></i>
+                    New Employee
+                </a>                
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -44,11 +49,65 @@
                     @Html.DisplayFor(modelItem => item.ImagePath)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                    <a class="editButton btn btn-info text-white" href="#" id="@item.EmployeeID">
+                        <i class="fas fa-pen-alt"></i>
+                        Edit
+                    </a>
+                    @*<a asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |*@
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EmployeeID">
+                    <i class="fas fa-trash"></i>
+                    Delete                    
+                </a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $(".editButton").click(function () {
+            console.log("Starting");
+            $("#AddOrEditEmployeeTab").empty();
+            var _url = '@Url.Action("AddOrEdit", "Employee")';
+            $.ajax({
+                type: "GET",
+                url: _url,
+                data: { uid: parseInt($(this).prop("id")) },
+                success: function (result) {
+                    $("#AddOrEditEmployeeTab").html(result);
+                },
+            });
+            $('#AddOrEditEmployee-tab').trigger('click');
+            $('#AddOrEditEmployee-tab').html('Edit');
+
+        });
+        $("#ViewAllEmployee-tab").click(function () {
+            $('#AddOrEditEmployee-tab').html('Add new');
+            var _url = '@Url.Action("AddOrEdit", "Employee")';
+            $.ajax({
+                type: "GET",
+                url: _url,
+                data: { uid: 0 },
+                success: function (result) {
+                    $("#AddOrEditEmployeeTab").html(result);
+                },
+            });
+
+        });
+        $("#addNewEmployeeButton").click(function () {
+            $('#AddOrEditEmployee-tab').html('Add new');
+            var _url = '@Url.Action("AddOrEdit", "Employee")';
+            $.ajax({
+                type: "GET",
+                url: _url,
+                data: { uid: 0 },
+                success: function (result) {
+                    $("#AddOrEditEmployeeTab").html(result);
+                },
+            });
+            $('#AddOrEditEmployee-tab').trigger('click');
+            $('#AddOrEditEmployee-tab').html('Add New');
+
+        });
+    });
+</script>

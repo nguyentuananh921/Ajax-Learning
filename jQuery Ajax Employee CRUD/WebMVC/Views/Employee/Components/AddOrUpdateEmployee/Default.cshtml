@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-<form asp-action="Create" class="row">
+<form enctype="multipart/form-data" asp-action="AddOrEdit" class="row" onsubmit="return jQueryAjaxEmployeePost(this);" autocomplete="off">    
     <div class="col-md-6">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="EmployeeID" />
@@ -29,8 +29,10 @@
     </div>
     <div class="col-md-6">
         <div class="row form-group">
-            <label asp-for="ImagePath" class="control-label col-md-2"></label>
-            <div class="col-md-10">
+            <div>
+                <label asp-for="ImagePath" class="control-label col-md-2"></label>
+            </div>
+            <div>
                 @{
                     if (Model.ImagePath == null)
 
@@ -41,12 +43,12 @@
                     {
                         <img src="@Url.Content(Model.ImagePath)" style="margin:10px" height="200" width="200" id="imagePreview" />
                     }
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
                 }
-                <input type="file" name="ImageUpload" asp-for="ImagePath" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))" />
+
+                <input class="col-md-10" type="file" name="ImageUpload" asp-for="ImagePath" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))" />
                 @*<input type="file" name="ImageUpload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))" />*@
-            </div>
-            @*<input asp-for="ImagePath" class="form-control" />
-                <span asp-validation-for="ImagePath" class="text-danger"></span>*@
+            </div>            
         </div>
     </div>
     @{
@@ -55,8 +57,7 @@
             buttonString = "Update";
 
     }
-    <div class="form-group">
-        <input type="submit" value=@buttonString class="btn btn-primary" />
+    <div class="form-group" style="margin-top:auto">
+        <input type="submit" value="@buttonString" class="btn btn-primary" onclick="refreshAddOrEditTab('@Url.Action("AddOrEdit","Employee",new{EmployeeID=0})',false)" />
     </div>
-
 </form>

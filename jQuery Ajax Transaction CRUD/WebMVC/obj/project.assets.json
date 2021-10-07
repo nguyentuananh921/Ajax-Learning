@@ -7840,11 +7840,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
+      "projectUniqueName": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
       "projectName": "WebMVC",
-      "projectPath": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
+      "projectPath": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
       "packagesPath": "C:\\Users\\Nguyen Tuan Anh\\.nuget\\packages\\",
-      "outputPath": "F:\\Code learning\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\obj\\",
+      "outputPath": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

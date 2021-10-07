@@ -26,10 +26,65 @@ namespace WebMVC.Controllers
             return View();
 
         }
+        //public IActionResult GetMyViewComponent(int uid) //Ajax Parameter
+        //{
+        //    return ViewComponent("AddOrUpdateEmployee", new { empid = uid });//it will call Follower.cs InvokeAsync, and pass id to it.
+        //}
+        //GET
+        public IActionResult AddOrEdit(int uid) //Ajax Parameter
+        {
+            return ViewComponent("AddOrUpdateEmployee", new { empid = uid });//it will call Follower.cs InvokeAsync, and pass id to it.
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddOrEdit(int EmployeeID, [Bind("EmployeeID,Name,Position,Office,Salary,ImagePath,ImagePath")] Employee inputEmp)
+        {
+            if (ModelState.IsValid)
+            {
+                if (EmployeeID == 0)
+                {
+                    //Add employee here
+                    //transactionModel.Date = DateTime.Now;
+                    _appContext.Add(inputEmp);
+                    await _appContext.SaveChangesAsync();                    
+                }
+                else
+                {
+                    //Update employee here
+
+                    try
+                    {
+                        _appContext.Update(inputEmp);
+                        await _appContext.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!EmployeeModelExists(inputEmp.EmployeeID))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    
+
+                }
+                return View("Index");
+            }
+            return ViewComponent("AddOrUpdateEmployee", inputEmp);
+
+        }
+        private bool EmployeeModelExists(int id)
+        {
+            return _appContext.Employees.Any(e => e.EmployeeID == id);
+        }
+
         //public async Task<ActionResult> ViewAll()
         //{
         //    return View(await _appContext.Employees.ToListAsync());
-            
+
         //}        
 
         //// GET: EmployeeController/Details/5

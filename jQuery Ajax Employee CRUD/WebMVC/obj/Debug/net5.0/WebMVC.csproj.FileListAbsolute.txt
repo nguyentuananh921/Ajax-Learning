@@ -442,3 +442,4 @@ F:\Code learning\Working\Ajax-Learning\jQuery Ajax Employee CRUD\WebMVC\obj\Debu
 F:\Code learning\Working\Ajax-Learning\jQuery Ajax Employee CRUD\WebMVC\obj\Debug\net5.0\WebMVC.csprojAssemblyReference.cache
 F:\Code learning\Working\Ajax-Learning\jQuery Ajax Employee CRUD\WebMVC\obj\Debug\net5.0\Razor\Views\Employee\Components\ViewAllEmployee\Default.cshtml.g.cs
 F:\Code learning\Working\Ajax-Learning\jQuery Ajax Employee CRUD\WebMVC\obj\Debug\net5.0\Razor\Views\Employee\Components\AddOrUpdateEmployee\Default.cshtml.g.cs
+F:\Code learning\Working\Ajax-Learning\jQuery Ajax Employee CRUD\WebMVC\bin\Debug\net5.0\libman.json
