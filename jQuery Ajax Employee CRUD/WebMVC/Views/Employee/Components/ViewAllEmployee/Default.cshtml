@@ -95,6 +95,8 @@
 
         });
         $("#addNewEmployeeButton").click(function () {
+            console.log("Starting");
+            $("#AddOrEditEmployeeTab").empty()
             $('#AddOrEditEmployee-tab').html('Add new');
             var _url = '@Url.Action("AddOrEdit", "Employee")';
             $.ajax({
