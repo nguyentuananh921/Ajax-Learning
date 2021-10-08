@@ -29,7 +29,7 @@ jQueryAjaxPost = form => {
                     $("#layout-form-modal .modal-body").html('');
                     $("#layout-form-modal .modal-title").html('');
                     $("#layout-form-modal").modal('hide');
-                    $.notify('Submited successfully', { globalPosition: 'top center', classname='success' });
+                    //$.notify('Submited successfully', { globalPosition: 'top center', classname='success' });
                 }
                 else {
                     $("#layout-form-modal .modal-body").html(res.html); //Update modal-body part of the div have Id=layout-form-modal
@@ -59,7 +59,7 @@ jQueryAjaxDelete = form => {
                 processData: false,
                 success: function (res) {
                     $('#view-all').html(res.html);
-                    $.notify('Delete successfully', { globalPosition: 'top center', classname='success' });
+                    //$.notify('Delete successfully', { globalPosition: 'top center', classname='success' });
                 },
                 error: function (err) {
                     console.log(err)

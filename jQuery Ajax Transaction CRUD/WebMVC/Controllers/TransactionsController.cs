@@ -94,9 +94,11 @@ namespace WebMVC.Controllers
 
                 //return RedirectToAction(nameof(Index));
                 //return Json(new {isValid=true,html=Helper.Helper.RenderRazorViewToString(this,"Index",_context.Transactions.ToList()) });
+                var stringtxt = Helper.Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList());
                 return Json(new { isValid = true, html = Helper.Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
             }
             //return View(transactionModel);
+            
             return Json(new { isValid = false, html = Helper.Helper.RenderRazorViewToString(this,"AddOrEdit",transactionModel) });
         }
 
@@ -128,6 +130,7 @@ namespace WebMVC.Controllers
             _context.Transactions.Remove(transactionModel);
             await _context.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
+
             return Json(new {html = Helper.Helper.RenderRazorViewToString(this, "_ViewAll", _context.Transactions.ToList()) });
         }
         #endregion

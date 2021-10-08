@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj": {}
+    "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj": {}
   },
   "projects": {
-    "D:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj": {
+    "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
+        "projectUniqueName": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
         "projectName": "WebMVC",
-        "projectPath": "D:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
+        "projectPath": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\WebMVC.csproj",
         "packagesPath": "C:\\Users\\Nguyen Tuan Anh\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding Learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\obj\\",
+        "outputPath": "F:\\Code learning\\Working\\Ajax-Learning\\jQuery Ajax Transaction CRUD\\WebMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\Nguyen Tuan Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -96,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
